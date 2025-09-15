@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Luna.exclusive_01 - Conteúdo Exclusivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1c1e21;
+            line-height: 1.34;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #ab47bc);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .cover-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-section {
+            position: relative;
+            text-align: center;
+            margin-top: -60px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .bio {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border: 1px solid #e4e6ea;
+        }
+
+        .post-header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e4e6ea;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            color: white;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .post-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .post-info h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .post-time {
+            font-size: 13px;
+            color: #65676b;
+        }
+
+        .post-content {
+            padding: 16px;
+        }
+
+        .post-text {
+            font-size: 16px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .pricing-cards {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 24px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+
+        .popular {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            transform: scale(1.05);
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .plan-period {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .subscribe-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .subscribe-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: scale(1.05);
+        }
+
+        .exclusive-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .exclusive-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .exclusive-description {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e4e6ea;
+            color: #65676b;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: #d1f2eb;
+            color: #0d7a47;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #fdf2f2;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .loading-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 9999;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading inicial -->
+    <div class="loading-page" id="loadingPage">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Carregando Luna Exclusive...</h2>
+            <p>Preparando conteúdo exclusivo para você</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="cover-photo" id="coverPhoto"></div>
+            
+            <div class="profile-section">
+                <div class="profile-pic" id="profilePic">
+                    <span id="profileInitial">L</span>
+                </div>
+                
+                <h1 class="username" id="username">@Luna.exclusive_01</h1>
+                <p class="bio" id="bio">Conteúdo exclusivo e premium 💎 Seja VIP!</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="followersCount">12.5k</span>
+                        <span class="stat-label">Seguidores</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="vipsCount">2.1k</span>
+                        <span class="stat-label">VIPs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="postsCount">89</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-avatar" id="postAvatar">
+                        <span id="postInitial">L</span>
+                    </div>
+                    <div class="post-info">
+                        <h3 id="postUsername">@Luna.exclusive_01</h3>
+                        <span class="post-time">2 horas atrás</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        🔥 PROMOÇÃO ESPECIAL! 🔥<br><br>
+                        eu sei que você quer me ver sem nada!!💋 então não perde tempo assina meus conteúdos vip para não perder nada gatinho.
+                    </div>
+                    
+                    <div class="exclusive-content">
+                        <h2 class="exclusive-title">Conteúdo Exclusivo VIP</h2>
+                        <p class="exclusive-description">
+                            Acesse fotos e vídeos exclusivos, stories privados, lives VIP e muito mais conteúdo premium que você não encontra em lugar nenhum!
+                        </p>
+                    </div>
+
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h3 class="plan-name">Plano Mensal</h3>
+                            <div class="plan-price">R$ 20</div>
+                            <div class="plan-period">por mês</div>
+                            <ul class="plan-features">
+                                <li>Acesso completo ao conteúdo</li>
+                                <li>Fotos e vídeos exclusivos</li>
+                                <li>Stories VIP diários</li>
+                                <li>Chat direto comigo</li>
+                            </ul>
+                            <button class="subscribe-btn" onclick="subscribe('monthly', 20)">
+                                Assinar Agora
+                            </button>
+                            <div class="loading" id="loading-monthly">
+                                <div class="spinner"></div>
+                                <p>Processando...</p>
+                            </div>
+                        </div>
+
+                        <div class="pricing-card popular">
+                            <h3 class="plan-name">Plano Trimestral</h3>
+                            <div class="plan-price">R$ 50</div>
+                            <div class="plan-period">3 meses (R$ 16,67/mês)</div>
+                            <ul class="plan-features">
+                                <li>Tudo do plano mensal</li>
+                                <li>Conteúdo extra exclusivo</li>
+                                <li>Lives VIP semanais</li>
+                                <li>Prioridade no atendimento</li>
+                                <li>💎 MAIS POPULAR</li>
+                            </ul>
+                            <button class="subscribe-btn" onclick="subscribe('quarterly', 50)">
+                                Assinar Agora
+                            </button>
+                            <div class="loading" id="loading-quarterly">
+                                <div class="spinner"></div>
+                                <p>Processando...</p>
+                            </div>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3 class="plan-name">Plano Semestral</h3>
+                            <div class="plan-price">R$ 100</div>
+                            <div class="plan-period">6 meses (R$ 16,67/mês)</div>
+                            <ul class="plan-features">
+                                <li>Tudo dos planos anteriores</li>
+                                <li>Acesso vitalício a conteúdos</li>
+                                <li>Videochamadas VIP mensais</li>
+                                <li>Conteúdo personalizado</li>
+                                <li>🎁 Brinde especial</li>
+                            </ul>
+                            <button class="subscribe-btn" onclick="subscribe('biannual', 100)">
+                                Assinar Agora
+                            </button>
+                            <div class="loading" id="loading-biannual">
+                                <div class="spinner"></div>
+                                <p>Processando...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-message" id="success-message">
+                        ✅ Pagamento processado com sucesso! Você receberá o link de acesso em breve.
+                    </div>
+
+                    <div class="error-message" id="error-message">
+                        ❌ Erro ao processar pagamento. Tente novamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Luna Exclusive. Todos os direitos reservados.</p>
+            <p>Conteúdo protegido por direitos autorais.</p>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // CONFIGURAÇÕES DAS IMAGENS
+        // ========================================
+        // Para alterar as imagens, modifique as URLs abaixo:
+        
+        const PROFILE_IMAGE_URL = ""; // Cole aqui a URL da foto de perfil
+        const COVER_IMAGE_URL = "";   // Cole aqui a URL da foto de capa
+        
+        // Exemplo de como usar:
+        // const PROFILE_IMAGE_URL = "https://i.imgur.com/exemplo123.jpg";
+        // const COVER_IMAGE_URL = "https://i.imgur.com/exemplo456.jpg";
+        
+        // ========================================
+        // CONFIGURAÇÕES DO PERFIL
+        // ========================================
+        const PROFILE_CONFIG = {
+            username: "@Luna.exclusive_01",
+            bio: "Conteúdo exclusivo e premium 💎 Seja VIP!",
+            stats: {
+                followers: 12500,
+                vips: 2100,
+                posts: 89
+            }
+        };
+
+        // ========================================
+        // FUNÇÕES DE INICIALIZAÇÃO
+        // ========================================
+        
+        function loadProfileImages() {
+            // Carregar foto de perfil se URL fornecida
+            if (PROFILE_IMAGE_URL && PROFILE_IMAGE_URL.trim() !== "") {
+                updateProfileImage(PROFILE_IMAGE_URL);
+            }
+            
+            // Carregar foto de capa se URL fornecida
+            if (COVER_IMAGE_URL && COVER_IMAGE_URL.trim() !== "") {
+                updateCoverImage(COVER_IMAGE_URL);
+            }
+        }
+
+        function loadProfileConfig() {
+            // Atualizar username
+            document.getElementById('username').textContent = PROFILE_CONFIG.username;
+            document.getElementById('postUsername').textContent = PROFILE_CONFIG.username;
+            
+            // Atualizar bio
+            document.getElementById('bio').textContent = PROFILE_CONFIG.bio;
+            
+            // Atualizar estatísticas
+            document.getElementById('followersCount').textContent = formatNumber(PROFILE_CONFIG.stats.followers);
+            document.getElementById('vipsCount').textContent = formatNumber(PROFILE_CONFIG.stats.vips);
+            document.getElementById('postsCount').textContent = PROFILE_CONFIG.stats.posts;
+        }
+
+        function updateProfileImage(imagePath) {
+            const profilePic = document.getElementById('profilePic');
+            const profileInitial = document.getElementById('profileInitial');
+            const postAvatar = document.getElementById('postAvatar');
+            const postInitial = document.getElementById('postInitial');
+            
+            // Atualizar foto principal
+            profilePic.style.backgroundImage = `url(${imagePath})`;
+            profileInitial.style.display = 'none';
+            
+            // Atualizar avatar do post
+            postAvatar.style.backgroundImage = `url(${imagePath})`;
+            postInitial.style.display = 'none';
+        }
+
+        function updateCoverImage(imagePath) {
+            const coverPhoto = document.getElementById('coverPhoto');
+            coverPhoto.style.backgroundImage = `url(${imagePath})`;
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'k';
+            }
+            return num.toString();
+        }
+
+        // ========================================
+        // FUNÇÃO DE ASSINATURA
+        // ========================================
+        
+        async function subscribe(plan, amount) {
+            const loadingElement = document.getElementById(`loading-${plan}`);
+            const button = event.target;
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // Links diretos da Cakto
+            const checkoutLinks = {
+                'monthly': 'https://pay.cakto.com.br/kk45m3e_569550',    // R$ 20
+                'quarterly': 'https://pay.cakto.com.br/ocq9oy5_569553',  // R$ 50
+                'biannual': 'https://pay.cakto.com.br/3excwsk_569556'    // R$ 100
+            };
+
+            // Esconder mensagens anteriores
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Verificar se existe link para o plano
+            const checkoutUrl = checkoutLinks[plan];
+            if (!checkoutUrl) {
+                errorMessage.textContent = '❌ Plano não encontrado. Tente novamente.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Mostrar loading
+            button.style.display = 'none';
+            loadingElement.style.display = 'block';
+
+            try {
+                // Simular um pequeno delay para UX
+                await new Promise(resolve => setTimeout(resolve, 800));
+
+                // Redirecionar diretamente para o checkout da Cakto
+                window.open(checkoutUrl, '_blank');
+                
+                // Mostrar mensagem de sucesso
+                successMessage.textContent = '✅ Redirecionando para pagamento... Finalize sua compra na nova aba!';
+                successMessage.style.display = 'block';
+
+                // Log para analytics
+                console.log('Checkout iniciado:', {
+                    plan: plan,
+                    amount: amount,
+                    timestamp: new Date().toISOString(),
+                    url: checkoutUrl
+                });
+
+            } catch (error) {
+                console.error('Erro no checkout:', error);
+                errorMessage.textContent = '❌ Erro ao abrir checkout. Tente novamente.';
+                errorMessage.style.display = 'block';
+            } finally {
+                // Esconder loading e mostrar botão novamente após um delay
+                setTimeout(() => {
+                    loadingElement.style.display = 'none';
+                    button.style.display = 'block';
+                }, 2000);
+            }
+        }
+
+        // ========================================
+        // ANIMAÇÕES E EFEITOS
+        // ========================================
+        
+        // Simular atualizações de estatísticas
+        function animateStats() {
+            setInterval(() => {
+                const stats = document.querySelectorAll('.stat-number');
+                stats.forEach(stat => {
+                    if (Math.random() > 0.98) { // Mudança mais rara
+                        const current = parseInt(stat.textContent.replace('k', '000').replace('.', ''));
+                        const increment = Math.floor(Math.random() * 3) + 1;
+                        const newValue = current + increment;
+                        
+                        if (newValue >= 1000) {
+                            stat.textContent = (newValue / 1000).toFixed(1) + 'k';
+                        } else {
+                            stat.textContent = newValue.toString();
+                        }
+                    }
+                });
+            }, 10000); // Verificar a cada 10 segundos
+        }
+
+        // Efeito parallax na foto de capa
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const coverPhoto = document.getElementById('coverPhoto');
+            if (coverPhoto) {
+                coverPhoto.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+        });
+
+        // ========================================
+        // INICIALIZAÇÃO DA PÁGINA
+        // ========================================
+        
+        window.addEventListener('load', function() {
+            // Carregar configurações do perfil
+            loadProfileConfig();
+            
+            // Carregar imagens
+            loadProfileImages();
+            
+            // Iniciar animações
+            animateStats();
+            
+            // Esconder loading após carregar tudo
+            setTimeout(() => {
+                document.getElementById('loadingPage').style.display = 'none';
+            }, 1500);
+        });
+
+        // ========================================
+        // EASTER EGG - DEBUG INFO
+        // ========================================
+        
+        let clickCount = 0;
+        document.getElementById('username').addEventListener('click', function() {
+            clickCount++;
+            if (clickCount === 3) {
+                console.log('🎨 Luna Exclusive Debug Info:', {
+                    version: '3.0.0 GitHub Ready',
+                    profile_image: PROFILE_IMAGE_URL || 'Não configurado',
+                    cover_image: COVER_IMAGE_URL || 'Não configurado',
+                    timestamp: new Date().toISOString(),
+                    config: PROFILE_CONFIG
+                });
+                clickCount = 0;
+            }
+            setTimeout(() => clickCount = 0, 1500);
+        });
+    </script>
+</body>
+</html>
